@@ -1,67 +1,68 @@
 from utils import *
 
-total_players = int(input("Πόσα άτομα θα παίξουν;"))
-#κατασκευή λίστας με τα ονόματα των παικτών
+total_players = int(input("How many people want to play?\n"))
+#create a list containing the name of each player
 players = ()
 for i in range(total_players):
-    name = input("Δώσε το όνομά σου:")
+    name = input("What's your name, player %d?\n" % (i+1))
     players += (name,)
 
-#γράμματα της αλφαβήτου που θα χρησιμοποιηθούν
-alpabeth = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ"
+#the letters of the alphabet
+alpabeth = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-round = 0 #μέτρηση των γύρων του παιχνιδιού
+round = 0 #counting rounds
 copy_players = list(players)
 while len(copy_players) > 0:
-    #κατασκευή λίστας με τις λέξεις που έχουν χρησιμοποιηθεί σε αυτόν και στον επόμενο γύρο, θα διαγράφονται τα στοιχεία ανά 2 γύρους
+    #make a list containing the words that have been used during the 2 latest rounds
+    #and clean it every 2 rounds
     if (round % 2) == 0:
         used_words = []
-    #επανάληψη του παιχνιδιού για κάθε παίχτη στον τρέχων γύρο
+    #for every active player
     for play in players:
         if play in copy_players:
             print(36*"*")
-            print(play, "έχεις περιθώριο να μαντέψεις 5 λάθος γράμματα. Η έκτη αποτυχία θα σε αποκλείσει από το παιχνίδι.")
+            print(play, "you have only 5 mistakes to make, while guessing letters. After that, you won't be able to play.")
             word = Random_Word()
-            #έλεγχος εάν η τυχαία λέξη έχει χρησιμοποιηθεί ή όχι ώστε να επιλεγεί άλλη αν χρειάζεται
+            #check if the word picked by chance hase already been used in this game; if so, we randomly pick another one
             while (word in used_words) == True:
                 word = Random_Word()
             used_words += [word]
             simplist = list(len(word)*"_")
-            print("Η λέξη που πρέπει να μαντέψεις είνα:", " ".join(simplist))
+            print("Your word is:", " ".join(simplist))
             found = False
             lives = 5
-            #ο παίκτης μαντεύει γράμματα μέχρι να του τελειώσουν οι ζωές ή να κερδίσει
+            #the current player gusses letters till he has no lives left or he founds the word
             while lives > 0 and found == False:
-                guess = input("Δώσε γράμμα:")
-                #έλεγχος εάν το γράμμα δεν περιέχεται στο αλφάβητο επιστρέφει μήνυμα
+                guess = input("Guess a letter:")
+                #check if the input is a valid capital letter of the english alphabet
                 while guess not in alpabeth:
-                    guess = input("Ο χαρακτήρας που έδωσες δεν ανήκει στο αλφάβητο. Δώσε κεφαλαίο ελληνικό γράμμα:")
-                #έλεγχος εάν ο χρήστης μάντεψε σωστά το γράμμα κι εμφανισή του
+                    guess = input("Invalid input detected. Please, try again with a valid capital letter of the english alphabet:\n")
+                #check if the word contains the guess
                 if guess in word:
                     for i in range(len(word)):
                         if word[i]== guess:
                             simplist[i]= guess
                     if  "".join(simplist)== word:
-                        print("Συγχαρητήρια! Βρήκες τη λέξη:", word)
+                        print("Congratulations! You found the hidden word:", word)
                         found = True
                     else:
-                        print("Η λέξη που πρέπει  να μαντέψεις είναι:", " ".join(simplist))
+                        print("The word you have tou find is:", " ".join(simplist))
                 else: 
-                    #εάν δε μάντεψε σωστά αφαιρείται μία ζωή και εμφανίζεται η κρεμάλα
+                    #in case of a wrong guess, remove one from his remaining lives
                     stickman_draw(lives)
                     lives -= 1
-                    print("Η λέξη που πρέπει να μαντέψεις είναι:", " ".join(simplist))
-                    print("Έχεις ακόμα", lives, "ζωές.")
-            #γίνεται έλεγχος εάν τελικά έχασε, εφόσον ναι εκτυπώνεται ολόκληρο το ανθρωπάκι και μήνυμα αποτυχίας
+                    print("Your word is:", " ".join(simplist))
+                    print("You have", lives, "more lives.")
+            #check if the player has lost
             if lives == 0:
                 stickman_draw(0)
-                print("Δυστυχώς δε κατάφερες να μαντέψεις τη λέξη:", word, "για αυτό αποκλείστηκες από το παιχνίδι παίκτη:", play)
+                print("Unfortunately, you did not manage to find the word: ", word, ".\nAs a result, the game is over for you, player:", play)
                 copy_players.remove(play)
-    #αύξηση των αριθμών των γύρων κατά 1
+    #increse the number of round by 1
     round +=1
     if len(copy_players) == 1:
-        print("Παίκτη:", copy_players[0], "είσαι ο νικητής!")
+        print("Player:", copy_players[0], "you are the winner!")
         break
 
 if len(copy_players) == 0:
-    print("Το παιχνίδι τελείωσε χωρίς κανένα νικητή.")        
+    print("The game is over and no winner has been spotted :( ")

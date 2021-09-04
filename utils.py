@@ -1,16 +1,16 @@
 def Random_Word():
-    #επιστρέφει μία τυχαία λέξη από προκαθορισμένο λεξικό 50 λέξεων
+    #returns a random word from the following list of 50 words
     import random
-    words = ["ΚΛΟΥΒΙ", "ΚΛΕΙΔΙ", "ΨΥΧΟΦΘΟΡΟΣ", "ΚΑΛΟΚΑΙΡΙ", "ΑΚΡΟΓΥΑΛΙΑ", "ΡΥΑΚΙ", 
-        "ΑΥΤΟΚΙΝΗΤΟ", "ΘΑΛΑΣΣΑ", "ΓΑΣΤΡΕΝΤΕΡΙΤΙΔΑ", "ΔΙΑΜΟΝΗ", "ΣΚΟΠΕΛΟΣ",
-        "ΔΡΑΜΑ", "ΜΥΘΙΣΤΟΡΗΜΑ", "ΠΕΡΙΠΕΤΕΙΑ", "ΑΡΚΟΥΔΑ", "ΟΘΟΝΗ",
-        "ΨΥΧΟΛΟΓΙΑ", "ΛΕΦΤΑ", "ΑΠΟΓΡΑΦΗ", "ΟΓΚΟΣ", "ΓΛΕΙΦΥΤΖΟΥΡΙ", "ΜΟΥΣΙΚΗ",
-        "ΦΟΙΝΙΚΑΣ", "ΣΤΟΧΟΣ", "ΚΙΝΗΤΟ", "ΚΑΛΟΥΠΙ", "ΘΗΣΑΥΡΟΣ", "ΤΡΟΦΗ",
-        "ΒΙΑ", "ΧΑΡΑ", "ΠΕΡΙΠΑΤΟΣ", "ΤΡΑΜΠΟΥΚΟΣ", "ΠΑΣΤΑ", "ΔΥΝΑΜΗ", "ΖΑΡΙ",
-        "ΛΑΟΣ", "ΠΑΡΟΙΜΙΑ", "ΓΕΡΟΝΤΟΚΟΡΗ", "ΡΑΦΙ", "ΤΟΡΝΑΔΟΡΟΣ", "ΖΥΘΟΣ",
-        "ΚΟΥΜΠΑΡΑΣ", "ΠΡΟΝΟΜΙΟ", "ΜΝΗΜΗ", "ΖΩΓΡΑΦΙΑ", "ΤΕΡΨΗ", "ΜΗΧΑΝΟΡΡΑΦΩ",
-        "ΦΑΚΟΣ", "ΔΡΑΚΟΣ", "ΙΠΠΟΚΑΜΠΟΣ"]
-    #τυχαία θέση της λέξης στη λίστα-λεξικό
+    words = ["CAGE", "KEYOARD", "DISASTER", "SUMMER", "BEACH", "RIVER",
+        "AUTOMOBILE", "SUBWAY", "IATROGENIC", "RHYTHM", "STYMIED",
+        "DRAMA", "AZURE", "ADVENTURE", "BEAR", "JOCKEY",
+        "JIUJITSU", "MONEY", "IVY", "TRANSCRIPT", "LUXURY", "MNEMONIC",
+        "MATRIX", "MICROWAVE", "PHONE", "ZODIAC", "ZOMBIE", "NUTRITION",
+        "VIOLENCE", "FUNNY", "QUIXOTIC", "GOSSIP", "OXYGEN", "POWER", "GLYPH",
+        "PEOPLE", "FLUFFINESS", "JAZZ", "BUZZ", "QUIZ", "BEER",
+        "BEAR", "AWKWARD", "MEMORY", "DRAWING", "JACKPOT", "BUZZARD",
+        "CYCLE", "TRANSPLANT", "VAPORIZE"]
+    #pick a random word
     s = random.randint(0,49)
     random_w = words[s]
     return random_w
@@ -51,5 +51,3 @@ def stickman_draw(lives):
         print("\n".join(parts[0:6])+("\n|"*1))
     elif lives==0:
         print("\n".join(parts))
-
-
