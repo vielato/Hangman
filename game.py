@@ -33,10 +33,10 @@ while len(copy_players) > 0:
             lives = 5
             #the current player gusses letters till he has no lives left or he founds the word
             while lives > 0 and found == False:
-                guess = input("Guess a letter:")
+                guess = input("Guess a letter: ")
                 #check if the input is a valid capital letter of the english alphabet
                 while guess not in alpabeth:
-                    guess = input("Invalid input detected. Please, try again with a valid capital letter of the english alphabet:\n")
+                    guess = input("Invalid input detected. Please, try again with a valid capital letter of the english alphabet: ")
                 #check if the word contains the guess
                 if guess in word:
                     for i in range(len(word)):
@@ -56,7 +56,7 @@ while len(copy_players) > 0:
             #check if the player has lost
             if lives == 0:
                 stickman_draw(0)
-                print("Unfortunately, you did not manage to find the word: ", word, ".\nAs a result, the game is over for you, player:", play)
+                print("Unfortunately, you did not manage to find the word: ", word, "\nAs a result, the game is over for you, ", play)
                 copy_players.remove(play)
     #increse the number of round by 1
     round +=1
