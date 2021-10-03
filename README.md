@@ -1,7 +1,7 @@
 # Hangman
 Hangman Game Project in python.
 
-##Using
+## Using
 [Python](https://www.python.org/)
 
 ## Guidance on running this project
