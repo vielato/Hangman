@@ -2,7 +2,7 @@
 Hangman Game Project in python.
 
 ## Using
-[Python](https://www.python.org/)
+* [Python](https://www.python.org/)
 
 ## Guidance on running this project
 1. Clone the project to your prefered folder.
@@ -12,11 +12,10 @@ Hangman Game Project in python.
 5. Let the game begin!
 
 ## Collaborators
-[solaunar](https://github.com/solaunar)
-
-[AriaSp](https://github.com/AriaSp)
+* [solaunar](https://github.com/solaunar)
+* [AriaSp](https://github.com/AriaSp)
+* [vielato](https://github.com/vielato)
 
 ### Legal
-License: [MIT](https://opensource.org/licenses/MIT)
-
-Support: If you find any problems with the code, please, [open an issue](https://github.com/vielato/Hangman/issues) to discuss what you would like to change. 
+* License: [MIT](https://opensource.org/licenses/MIT)
+* Support: If you find any problems with the code, please, [open an issue](https://github.com/vielato/Hangman/issues) to discuss what you would like to change. 
